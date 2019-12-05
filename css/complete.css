@@ -2,10 +2,10 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background: url("/img/check.jpg") no-repeat;
+  background: url("../img/check.jpg") no-repeat;
   background-size: 100% 100%;
   opacity: 0.3;
-  display: none;
+  display: nones;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
   float: left;
   width: 75%;
   height: 100vh;
-  background: #1a5c71 url("/img/girl.jpg") no-repeat;
+  background: #1a5c71 url("../img/girl.jpg") no-repeat;
   background-size: cover;
 }
 
