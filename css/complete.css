@@ -1,0 +1,90 @@
+.check {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: url("/img/check.jpg") no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.3;
+  display: none;
+}
+
+body {
+  font: 100% Open Sans, sans-serif;
+  color: #3b3b3b;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+}
+
+#section--left__wrapper {
+  display: flex;
+  float: left;
+  width: 75%;
+  height: 100vh;
+  background: #1a5c71 url("/img/girl.jpg") no-repeat;
+  background-size: cover;
+}
+
+#section--left__bottom {
+  display: flex;
+  width: 100%;
+  min-height: 5%;
+  background: white;
+  align-self: flex-end;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+#section--left__bottom h6 {
+  margin: 0;
+  font-size: 12px;
+  padding: 0;
+}
+
+#section--right__wrapper {
+  position: relative;
+  display: flex;
+  width: 25%;
+  height: 100%;
+  background: #fc5095;
+  padding-left: 0.7%;
+  box-sizing: border-box;
+}
+
+#section--right__main__wrapper {
+  width: 100%;
+  height: 80%;
+  align-self: end;
+  background: white;
+  overflow: hidden;
+}
+
+#section--right__main {
+  height: 100%;
+  width: 100%;
+  margin-top: 0px;
+  transition: all 1.5s;
+}
+
+.section--right__content {
+  width: 100%;
+  height: 100%;
+}
+
+.content_number_1 {
+  background: red;
+}
+
+.content_number_2 {
+  background: green;
+}
+
+.content_number_3 {
+  background: yellow;
+}
+
+/*# sourceMappingURL=complete.css.map */
