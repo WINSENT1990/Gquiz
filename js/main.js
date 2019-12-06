@@ -9,8 +9,19 @@ let nextScreen = () => {
 let wideSections = () => {
   document.getElementById('section--left__wrapper').style.width = "56.25%";
   document.getElementById('section--right__wrapper').style.width = "43.75%";
+  document.getElementById('section--right__wrapper').style.background = "#fc8950";
+
 };
 
 // При клике на окно с будущим контентом, пролистнуть один экран вниз и расширить секцию.
-document.getElementById("section--right__main__wrapper").addEventListener("click", nextScreen);
-document.getElementById("section--right__main__wrapper").addEventListener("click", wideSections);
+document.getElementById("button--start").addEventListener("click", nextScreen);
+document.getElementById("button--start").addEventListener("click", wideSections);
+
+// Pixel Perfect обертка (удалить на прод)
+window.addEventListener('keyup',function(e){
+    if (e.keyCode === 49) {
+    document.getElementById("check").style.display = "block";
+  } else if (e.keyCode === 50) {
+    document.getElementById("check").style.display = "none";
+  }
+});
