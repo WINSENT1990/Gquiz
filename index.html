@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   <script type="module" src="js/main.js"></script>
   <link rel="stylesheet" href="css/complete.css">
   <link rel="stylesheet" href="css/normalize.css">
@@ -13,6 +13,15 @@
 <body>
     <div id="check"></div>
     <div id="section--left__wrapper">
+      <div id="querry--results">
+        <h2 id="querry--results--persents">
+
+        </h2>
+        <p id="querry--results--descr">
+          Ошибка!<br>
+          К сожалению, результаты голосования недоступны.
+        </p>
+      </div>
       <section id="section--left__bottom">
           <h6>НАЗВАНИЕ1</h6>
           <h6>НАЗВАНИЕ2</h6>
@@ -26,7 +35,7 @@
     </div>
     <div id="section--right__wrapper">
       <div id="section--right__main__wrapper">
-            <main id="section--right__main">
+        <main id="section--right__main">
               <section class="section--right__content content_number_1">
                 <h3>Lorem ipsum</h3>
                 <p>Mauris vel nisi ac orci
@@ -36,8 +45,56 @@
                 <h2>Lorem Ipsum?</h2>
                 <button id="button--start">НАчать</button>
               </section>
-              <section class="section--right__content content_number_2"></section>
-              <section class="section--right__content content_number_3"></section>
+              <section class="section--right__content content_number_2">
+                <h3>Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit.
+                    Integer a urna sit amet
+                </h3>
+                <form action="/"> <!--Если нужно отправлять результат этого голосования
+                  на сервер, то нужно button внести внутрь формы или заменить на submit  -->
+                  <input type="radio" id="variant--a" name="quiz" class="radio--quiz" value="A">
+                  <label for="variant--a" id="label--a" class="rbuttons--quiz">Вариант А</label>
+
+                  <input type="radio" id="variant--b" name="quiz" class="radio--quiz" value="B">
+                  <label for="variant--b" id="label--b" class="rbuttons--quiz">Вариант Б</label>
+
+                  <input type="radio" id="variant--c" name="quiz" class="radio--quiz" value="C">
+                  <label for="variant--c" id="label--c" class="rbuttons--quiz">Вариант В</label>
+                  <!-- <input type="submit" value="Продолжить"> - Пример -->
+                </form>
+                <button id="button--toReg">Продолжить</button>
+              </section>
+              <form class="section--right__content content_number_3" action="/" id="reg--form">
+                  <h3>
+                    Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit,
+                    sed do eiusmod
+                  </h3>
+                  <legend>Я ищу:</legend>
+                  <div class="rwrapper">
+                    <input type="radio" id="male" name="gender" checked value="male">
+                    <label for="male" id="male--label">Вариант 1</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female" id="female--label">Вариант 2</label>
+                  </div>
+
+                  <legend>Ваше имя:</legend>
+                  <input type="text" id="u-name" name="regdata">
+
+                  <legend>Email:</legend>
+                  <input type="text" id="u-email" name="regdata">
+
+                  <legend>Придумайте пароль</legend>
+                  <input type="password" id="u-passwd" name="regdata">
+
+                  <input type="checkbox" name="regdata" id="privacy" value="OK" checked>
+                  <label for="privacy">Регистрируясь, вы подтверждаете, что вам уже исполнилось
+                    18 лет и вы ознакомились с условиями пользования сайтом.
+                  </label>
+
+                  <input type="submit" value="Продолжить" id="validateBtn" disabled>
+                </form>
+              </form>
           </main>
       </div>
     </div>
