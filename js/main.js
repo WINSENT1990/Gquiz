@@ -1,4 +1,13 @@
-// Функция, отвечающая за перелистывание контенты
+// Убираем проигрывание начальной анимации в некоторых браузерах
+window.onload = function f(){
+  var body = document.getElementsByClassName('load')[0];
+  body.classList.remove('load');
+};
+
+// Функция, отвечающая за перелистывание контента
+let sectionLeftWrapper = document.getElementById('section--left__wrapper');
+let sectionRightWrapper = document.getElementById('section--right__wrapper');
+let heart = document.getElementsByClassName('heart')[0];
 let marginNew = 0;
 let nextScreen = () => {
   let a = marginNew + 80;
@@ -7,23 +16,16 @@ let nextScreen = () => {
 };
 // Расширяем секции (при смене первого скрина на второй)
 let wideSections = () => {
-    document.getElementById('section--left__wrapper').style.width = "55.8%";
-  document.getElementById('section--right__wrapper').style.width = "44.2%";
-  document.getElementById('section--right__wrapper').style.background = "#fc8950";
+  sectionLeftWrapper.style.width = "55.8%";
+  sectionRightWrapper.style.width = "44.2%";
+  sectionRightWrapper.style.background = "#fc8950";
+  heart.style.fill = "#fc8950";
+  heart.style.border = "0.5em solid #fc8950"
   nextScreen()
 };
 
 // При клике на окно с будущим контентом, пролистнуть один экран вниз и расширить секцию.
 document.getElementById("button--start").addEventListener("click", wideSections);
-
-// Pixel Perfect обертка (удалить на прод)
-window.addEventListener('keyup',function(e){
-    if (e.keyCode === 49) {
-    document.getElementById("check").style.display = "block";
-  } else if (e.keyCode === 50) {
-    document.getElementById("check").style.display = "none";
-  }
-});
 
 // При выборе радиокнопки показывать соответствующую информацию из статистики
 var radioQuiz = document.getElementsByName('quiz');
@@ -32,19 +34,25 @@ for (var i=0; i < radioQuiz.length; i++) {
   radioQuiz[i].onchange = percentsQuiz;
 };
 function percentsQuiz() {
-  document.getElementById('querry--results').style.opacity = "1"
-  document.getElementById('button--toReg').style.display = "block"
-  document.getElementById('button--toReg').style.opacity = "1"
+  let persents = document.getElementById('querry--results--persents');
+  let descr = document.getElementById('querry--results--descr');
+  let results = document.getElementById('querry--results');
+  let toReg = document.getElementById('button--toReg');
+
+  results.style.opacity = "1";
+  toReg.style.display = "block";
+  toReg.style.opacity = "1";
+
   if (this.value === "A") {
-    document.getElementById('querry--results--persents').innerHTML = "15%";
-    document.getElementById('querry--results--descr').innerHTML = "Людей обращают внимание на А.";
+    persents.innerHTML = "15%";
+    descr.innerHTML = "Людей обращают внимание на А.";
   } else if (this.value ==="B"){
-    document.getElementById('querry--results--persents').innerHTML = "30%";
-    document.getElementById('querry--results--descr').innerHTML = "Людей обращают внимание на Б.";
+    persents.innerHTML = "30%";
+    descr.innerHTML = "Людей обращают внимание на Б.";
 
   } else if (this.value === "C") {
-    document.getElementById('querry--results--persents').innerHTML = "55%";
-    document.getElementById('querry--results--descr').innerHTML = "Людей обращают внимание на В.";
+    persents.innerHTML = "55%";
+    descr.innerHTML = "Людей обращают внимание на В.";
   };
 };
 
@@ -52,7 +60,9 @@ function percentsQuiz() {
 let toReg = () => {
   nextScreen()
   document.getElementById('querry--results').style.opacity = "0"
-  document.getElementById('section--right__wrapper').style.background = "#1da7c0";
+  sectionRightWrapper.style.background = "#1da7c0";
+  heart.style.fill = "#1da7c0";
+  heart.style.border = "0.5em solid #1da7c0";
 };
 
 document.getElementById("button--toReg").addEventListener("click", toReg);
@@ -73,40 +83,38 @@ for (let i=0; i < regData.length; i++) {
 function regCheck() {
   let confirmed = "1px solid #1da7c0";
   let err = "1px solid #b72020";
+  let submit = document.getElementById('validateBtn');
+  let privacy = document.getElementById('privacy');
   // Параметры, на которые проверяется форма
+  // Проверка на наличие имени
   if (regLogin.value) {
-    document.getElementById('validateBtn').disabled = false;
     regLogin.style.border = confirmed
   } else {
-    document.getElementById('validateBtn').disabled = true;
     regLogin.style.border = err
     regLogin.placeholder = "Введите свое имя"
   };
-
+  // Проверка на наличие и валидность емейла
   if (regEmail.value.indexOf('@') > 1 && regEmail.value.indexOf('.') > 1) {
-    document.getElementById('validateBtn').disabled = false;
+
     regEmail.style.border = "1px solid #1da7c0";
   } else {
-    document.getElementById('validateBtn').disabled = true;
     regEmail.style.border = "1px solid red";
     regEmail.placeholder = "Неверный формат email"
   };
-
+  // Проверка на наличие пароля
   if (regPasswd.value) {
-    document.getElementById('validateBtn').disabled = false;
     regPasswd.style.border = confirmed;
   } else {
-    document.getElementById('validateBtn').disabled = true;
     regPasswd.style.border = err;
     regPasswd.placeholder = "Придумайте новый пароль";
   };
-
-  if (privacy.checked === false) {
-    document.getElementById('validateBtn').disabled = true;
+  // Проверка формы перед сабмитом в целом по обязательным параметрам
+  if (regPasswd.value
+      && privacy.checked == true
+          && regLogin.value
+              && (regEmail.value.indexOf('@') > 1 && regEmail.value.indexOf('.') > 1)){
+    submit.disabled = false;
+  } else {
+    submit.disabled = true;
   };
 };
-
-document.querySelector('.content_number_3').addEventListener('submit', function (event) {
-  event.preventDefault(); // Отключение дефолтных действий с формой
-  // Отсюда можно работать с API
-});

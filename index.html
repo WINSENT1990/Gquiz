@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <title>Document</title>
 </head>
-<body>
+<body class="load">
     <div id="check"></div>
     <div id="section--left__wrapper">
       <div id="querry--results">
@@ -34,6 +34,9 @@
       </section>
     </div>
     <div id="section--right__wrapper">
+      <div class="heart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/></svg>
+      </div>
       <div id="section--right__main__wrapper">
         <main id="section--right__main">
               <section class="section--right__content content_number_1">
@@ -65,6 +68,8 @@
                 <button id="button--toReg">Продолжить</button>
               </section>
               <form class="section--right__content content_number_3" action="/" id="reg--form">
+                  <!-- Форма не валидируется дефолтным методом (с помощью атрибута required)
+                        а валидируется с помощью JS, т.к. это требуется ТЗ -->
                   <h3>
                     Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit,
@@ -82,17 +87,18 @@
                   <input type="text" id="u-name" name="regdata">
 
                   <legend>Email:</legend>
-                  <input type="text" id="u-email" name="regdata">
+                  <input type="email" id="u-email" name="regdata">
 
                   <legend>Придумайте пароль</legend>
                   <input type="password" id="u-passwd" name="regdata">
 
-                  <input type="checkbox" name="regdata" id="privacy" value="OK" checked>
+                  <input type="checkbox" name="regdata" id="privacy" value="OK" checked required>
                   <label for="privacy">Регистрируясь, вы подтверждаете, что вам уже исполнилось
                     18 лет и вы ознакомились с условиями пользования сайтом.
                   </label>
 
                   <input type="submit" value="Продолжить" id="validateBtn" disabled>
+
                 </form>
               </form>
           </main>

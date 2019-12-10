@@ -1,42 +1,42 @@
-$font-stack:    Open Sans, sans-serif
-$primary-text-color: #3b3b3b
-$primary-color-pink: #fc5095
-$check-error-color: #ffef009e
+@media screen and (max-aspect-ratio: 5 / 4)
+  body
+    font-size: 1.1vh !important
 
-#check
-  position: absolute
-  width: 100vw
-  height: 100vh
-  background: url('../img/check.jpg') no-repeat
-  background-size: 100% 100%
-  opacity: 0.3
-  display: none
-  z-index: 999
+  #querry--results--persents
+    font-size: 10.25em !important
+
+  #section--left__wrapper
+    background-position: center top !important
+
+.load *
+  -webkit-transition: none !important
+  -moz-transition: none !important
+  -ms-transition: none !important
+  -o-transition: none !important
 
 body
-  font: 100% $font-stack
-  color: $primary-text-color
+  font-family: "Open Sans", sans-serif
+  font-size: 1.5vh
+  color: #3b3b3b
   display: flex
-  flex-wrap: wrap
   width: 100%
   height: 100vh
 
 button
-  &:active
+  &:active, &:focus
     outline: none !important
-  &:focus
-    outline: none !important
-input[type="submit"]
-  &:focus
-    outline: none !important
-// Misc styles end -------------------------------------------------------------
+
+input:focus
+  outline: none !important
+
 #section--left__wrapper
   position: relative
   display: flex
   float: left
   width: 75%
   height: 100vh
-  background: #1a5c71 url('../img/girl.jpg') no-repeat
+  background: #1a5c71 url("../img/girl.jpg") no-repeat
+  background-position: left top
   background-size: cover
   transition: all 0.5s
 
@@ -51,16 +51,12 @@ input[type="submit"]
   height: 100%
   background: #fc8950b0
   z-index: 10
-  transition: all 1s
-  transition-timing-function: cubic-bezier(.22,-0.56,0,1.78)
-
-@media (screen and max-width: 1620px)
-  #querry--results--persents
-    font-size: 160px
+  transition: opacity 1s
+  transition-timing-function: cubic-bezier(0.22, -0.56, 0, 1.78)
 
 #querry--results--persents
   width: 65%
-  font-size: 340px
+  font-size: 21.25em
   color: #ffffff
   font-weight: 800
   text-transform: uppercase
@@ -69,7 +65,7 @@ input[type="submit"]
 
 #querry--results--descr
   width: 65%
-  font-size: 40px
+  font-size: 2.5em
   font-weight: 800
   margin: 0
   color: #ffffff
@@ -79,7 +75,7 @@ input[type="submit"]
   display: flex
   width: 100%
   min-height: 5%
-  background: white
+  background: #ffffffb8
   align-self: flex-end
   flex-wrap: wrap
   flex-direction: row
@@ -88,22 +84,36 @@ input[type="submit"]
   padding: 0 5%
   z-index: 999
 
-#section--left__bottom h6
-  margin: 0
-  font-size: 12px
-  padding: 0
+  h6
+    margin: 0 0.5em 0 0
+    font-size: 0.75em
+    padding: 0
 
-// Left side end --------------------------------------------------------------
+.heart
+  width: 5em
+  height: 5em
+  background: #fff
+  border-radius: 50%
+  position: absolute
+  display: flex
+  justify-content: center
+  border: 0.5em solid #fc5095
+  fill: #fc5095
+  align-items: center
+  left: -2.5em
+  top: 28vh
+  z-index: 9999999
 
 #section--right__wrapper
   position: relative
   display: flex
   width: 25%
+  min-width: 420px
   height: 100%
-  background: $primary-color-pink
+  background: #fc5095
   padding-left: 0.7%
   box-sizing: border-box
-  transition: all 0.5s
+  transition: width 0.5s
 
 #section--right__main__wrapper
   width: 100%
@@ -115,9 +125,8 @@ input[type="submit"]
 #section--right__main
   height: 100%
   width: 100%
-  margin-top: 0px
+  margin-top: 0
   transition: all 0.5s
-
 
 .section--right__content
   width: 100%
@@ -126,50 +135,55 @@ input[type="submit"]
 .content_number_1
   display: flex
   flex-direction: column
-  padding: 10vh 5% 29vh 13%
+  padding: 10vh 5% 0 13%
   box-sizing: border-box
+
   p
     flex: 1
-    font-size: 24px
+    font-size: 1.5em
     font-style: Regular
     font-weight: 400
-    letter-spacing: 0.38px
+    letter-spacing: 0.2 0.375em
     text-transform: uppercase
     margin: 0
+
   h2
-    font-size: 34px
+    font-size: 2.125em
     text-transform: uppercase
     font-weight: 700
-    letter-spacing: 2.24px
+    letter-spacing: 2.1 0.5em
     margin: 0 0 4%
+
   h3
     text-transform: uppercase
-    font-size: 31px
-    color: $primary-color-pink
+    font-size: 1.875em
+    color: #fc5095
     margin: 0 0 3%
+
   button
-    width: 72%
-    height: 18%
-    margin: 0
+    margin: 0 0 29vh 0
     border: none
-    border-radius: 20px
-    background: $primary-color-pink
+    border-radius: 0.625em
+    padding: 0.6875em 1.6875em
+    background: #fc5095
     color: #ffffff
-    font-size: 38px
+    font-size: 2.375em
     font-weight: 700
     text-transform: uppercase
-    letter-spacing: 0.36px
-    transition: all 1s
-    transition-timing-function: cubic-bezier(.6,-0.28,.74,.05)
-  button:hover
-    background: #f20061
-    transition: all 1s
-    transition-timing-function: cubic-bezier(.22,-0.56,0,1.78)
+    letter-spacing: 0.0225em
+    align-self: flex-start
 
+    &:not(:hover)
+      transition: background 1s
+      transition-timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05)
 
+    &:hover
+      background: #f20061
+      transition: background 1s
+      transition-timing-function: cubic-bezier(0.22, -0.56, 0, 1.78)
 
 input
-  &[type="checkbox"], &[type="radio"]
+  &[type=checkbox], &[type=radio]
     display: none
 
 .rbuttons--quiz
@@ -178,17 +192,17 @@ input
   align-items: center
   width: 20vw
   height: 7.5vh
-  border-radius: 10px
-  border: 1px solid #d3d3d3
+  border-radius: 0.625em
+  border: 0.0625em solid #d3d3d3
   background-color: #ffffff
-  font-size: 26px
+  font-size: 1.625em
   font-weight: 400
-  letter-spacing: 0.15px
+  letter-spacing: 0.009375em
   margin: 0 0 3% 0
 
-.rbuttons--quiz:checked ~ #button--toReg
-  display: flex
-  opacity: 1
+  &:checked ~ #button--toReg
+    display: flex
+    opacity: 1
 
 #variant--a:checked ~ #label--a, #variant--b:checked ~ #label--b, #variant--c:checked ~ #label--c, #variant--a:hover ~ #label--a, #variant--b:hover ~ #label--b, #variant--c:hover ~ #label--c
   color: #ffffff
@@ -201,142 +215,165 @@ input
   padding: 8.5vh 20% 0vh 8%
   box-sizing: border-box
   line-height: 1.2
-  .checked
 
   h3
     text-transform: uppercase
-    font-size: 31px
+    font-size: 1.875em
     color: #fc8950
     margin: 0 0 7%
+
   button
-    display: none
-    width: 15vw
-    height: 7.5vh
-    margin: 15% 0 0 5%
+    margin: 10vh 0 0 1.5vh
     border: none
-    border-radius: 20px
+    border-radius: 0.625em
+    padding: 1.1em 1.4em
     background: #fc8950
     color: #ffffff
-    font-size: 26px
+    font-size: 1.625em
     font-weight: 700
     text-transform: uppercase
-    letter-spacing: 0.36pxпроверка на нали
-    transition: all 1s
-    transition-timing-function: cubic-bezier(.6,-0.28,.74,.05)
+    letter-spacing: 0.0225em
+    align-self: flex-start
     opacity: 0
-  button
     background: #f96e29
     transition: all 1s
-    transition-timing-function: cubic-bezier(.22,-0.56,0,1.78)
+    transition-timing-function: cubic-bezier(0.22, -0.56, 0, 1.78)
+
 .content_number_3
-    display: flex
-    flex-direction: column
-    background: #f6f5f5
-    box-sizing: border-box
-    padding: 6vh 11vw 4vh 3.5vw
-    h3
-      color: #1da7c0
-      font-weight: 700
-      text-transform: uppercase
-      letter-spacing: 0.24px
-      font-size: 31px
-    legend
-      font-family: "Open Sans", Semibold
-      font-size: 18px
-      font-weight: 600
-      letter-spacing: 0.05px
-    input::placeholder
-      color: #b72020
-      font-size: 18px
+  display: flex
+  flex-direction: column
+  background: #f6f5f5
+  box-sizing: border-box
+  padding: 6vh 11vw 4vh 3.5vw
+
+  h3
+    color: #1da7c0
+    font-weight: 700
+    text-transform: uppercase
+    letter-spacing: 0.1 0.5em
+    font-size: 1.875em
+
+  legend
+    font-family: "Open Sans", Semibold
+    font-size: 1.125em
+    font-weight: 600
+    letter-spacing: 0.003125em
+
+  input
+    &:invalid
+      border: none
+      box-shadow: none
+
+      &::placeholder
+        color: #b72020
+
+    &::placeholder
+      font-size: 1.125em
       font-weight: 300
-    input[type="text"], input[type="password"]
-      height: 7.4vh
-      width: 24.5vw
+
+    &[type=text], &[type=password], &[type=email]
+      height: 11%
+      width: 90%
       box-sizing: border-box
-      font-size: 18px
-      border: 1px solid #d3d3d3
-      border-radius: 10px
+      font-size: 1.125em
+      border: 0.0625em solid #d3d3d3
+      border-radius: 0.625em
       margin: 0 0 1.5vh 0
       padding: 0 0 0 1vw
-    input[type="text"]:focus, input[type="password"]:focus
-      border: 1px solid #84d7e6
-    input[type="submit"]:disabled
-      color: #aaa9a9
-      border: 1px solid #1da7c0
-      background-color: #ffffff
-    input[type="submit"]
-      height: 12vh
-      width: 15vw
+
+    &[type=text]:focus, &[type=password]:focus
+      border: 0.0625em solid #84d7e6
+
+    &[type=submit]
+      &:disabled
+        color: #aaa9a9
+        border: 0.0625em solid #1da7c0
+        background-color: #ffffff
+
+      height: 11%
+      width: 60%
       color: #ffffff
-      font-size: 26px
+      font-size: 1.625em
       text-transform: uppercase
       font-weight: 700
-      letter-spacing: 0.36px
+      letter-spacing: 0.0225em
       margin: 1.5vh 0 0 0
-      border-radius: 20px
+      border-radius: 0.625em
       background-color: #1da7c0
 
-    input[type="checkbox"]
+    &[type=checkbox]
       display: none
-    label
-      padding-left: 20px
-      &::before
-        content: ''
-        display: inline-block
-        border: 1px solid black
-        width: 13px
-        height: 13px
-        margin-right: 10px
-        border-radius: 2px
-    input[type="checkbox"]:checked + label::before
-      background-image: url('data:image/svg+xml,\ <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="f000000"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>')
-    #privacy
-      color: #000000
-      font-size: 13px
-      font-weight: 400
-      letter-spacing: 0.16px
+
+  label
+    padding-left: 1.25em
+    width: 90%
+
+    &::before
+      content: ""
+      display: inline-block
+      border: 0.0625em solid black
+      width: 0.875em
+      height: 0.875em
+      margin-right: 0.625em
+      border-radius: 0.125em
+
+  input[type=checkbox]:checked + label::before
+    background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="f000000"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>')
+    background-size: contain
+
+  #privacy
+    color: #000000
+    font-size: 0.875em
+    font-weight: 400
+    letter-spacing: 0.01em
 
 .rwrapper
   display: flex
-  width: 24.5vw
+  height: 5em
+  width: 90%
   justify-content: space-between
-  flex: row
-  label::before
-    width: 30px
-    height: 38px
-    background: url('/img/female_black.png') no-repeat
-    background-size: 100%
-    border: none
-  label:nth-child(2)::before
-    background: url('/img/male_black.png') no-repeat
-    background-size: 100%
-  input[type="radio"]:checked + label::before
-    background: url('/img/female_white.png') no-repeat
-    background-size: 100%
+  margin: 0 0 2vh 0
 
-  input[type="radio"]:checked + label:nth-child(2)::before
-    background: url('/img/male_white.png') no-repeat
-    background-size: 100%
+  label
+    &::before
+      width: 1.5em
+      height: 100%
+      background: url("../img/female_black.png") center no-repeat
+      background-size: contain
+      border: none
+
+    &:nth-child(2)::before
+      background: url("../img/male_black.png") center no-repeat
+      background-size: contain
+
+  input[type=radio]:checked + label
+    &::before
+      background: url("../img/female_white.png") center no-repeat
+      background-size: contain
+
+    &:nth-child(2)::before
+      background: url("../img/male_white.png") center no-repeat
+      background-size: contain
+
   label
     padding: 0
-    height: 7.4vh
-    width: 11.5vw
+    height: 100%
+    width: 48%
     margin: 0 0 1.5vh 0
     background: #ffffff
     display: flex
     justify-content: center
     align-items: center
-    border: 1px solid #d3d3d3
-    border-radius: 10px
-    font-size: 24px
+    border: 0.0625em solid #d3d3d3
+    border-radius: 0.625em
+    font-size: 1.5em
     font-family: "Open Sans", Semibold
     font-weight: 400
-    letter-spacing: 0.07px
+    letter-spacing: 0.004375em
     transition: all 0.5s
-  input[type="radio"]:checked + label
+
+  input[type=radio]:checked + label
     color: #ffffff
     background: #1da7c0
     transition: all 1s
-    transition-timing-function: cubic-bezier(.22,-0.56,0,1.78)
-
-// Right side end -------------------------------------------------------------
+    transition-timing-function: cubic-bezier(0.22, -0.56, 0, 1.78)
